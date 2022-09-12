@@ -12,5 +12,5 @@ public interface CandidateService {
 
     public void delete(Candidate candidate);
 
-    public Candidate findCandidat(Candidate candidate);
+    public Candidate findCandidate(Candidate candidate);
 }
