@@ -20,6 +20,7 @@ public class Candidate implements Serializable {
     private Long candidateId;
     private String nombre;
     private String apellido;
-    private String email;
-    private String telefono;
+    private Character tipo;
+    private Integer documento;
+    private String fechaNacimiento;
 }
