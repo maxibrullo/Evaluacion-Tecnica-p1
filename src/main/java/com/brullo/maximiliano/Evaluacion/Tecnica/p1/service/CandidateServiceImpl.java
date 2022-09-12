@@ -1,2 +1,4 @@
-package com.brullo.maximiliano.Evaluacion.Tecnica.p1.service;public class CandidateServiceImpl {
+package com.brullo.maximiliano.Evaluacion.Tecnica.p1.service;
+
+public class CandidateServiceImpl {
 }
