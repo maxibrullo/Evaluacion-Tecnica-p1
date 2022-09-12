@@ -16,14 +16,17 @@ public class CandidateServiceImpl implements CandidateService{
         return (List<Candidate>) candidateDao.findAll();
     }
 
+    @Override
     public void save(Candidate candidate){
         candidateDao.delete(candidate);
     }
 
+    @Override
     public void delete(Candidate candidate){
         candidateDao.delete(candidate);
     }
 
+    @Override
     public Candidate findCandidate(Candidate candidate){
         return candidateDao.findById(candidate.getCandidateId()).orElse(null);
     }
