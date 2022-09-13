@@ -27,12 +27,19 @@ public class ControladorInicio {
 
     @GetMapping("/agregar")
     public String agregar(Candidate candidate) {
-        return "modificar";
+        return "agregarOModificar";
     }
 
     @PostMapping("/guardar")
     public String guardar(Candidate candidate){
         candidateService.save(candidate);
         return "redirect:/";
+    }
+
+    @GetMapping("/editar/{candidateId}")
+    public String editar(Candidate candidate, Model model){
+        candidate = candidateService.findCandidate(candidate);
+        model.addAttribute("candidato", candidate);
+        return "agregarOModificar";
     }
 }
