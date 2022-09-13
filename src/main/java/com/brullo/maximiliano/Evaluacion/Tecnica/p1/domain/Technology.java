@@ -17,5 +17,6 @@ public class Technology implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long technologyId;
     private String nombre;
+    private String version;
 
 }
