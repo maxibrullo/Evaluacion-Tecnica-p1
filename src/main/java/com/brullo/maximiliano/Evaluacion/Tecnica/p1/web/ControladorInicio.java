@@ -42,4 +42,10 @@ public class ControladorInicio {
         model.addAttribute("candidato", candidate);
         return "agregarOModificar";
     }
+
+    @GetMapping("/eliminar")
+    public String eliminar(Candidate candidate){
+        candidateService.delete(candidate);
+        return "redirect:/";
+    }
 }
