@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Inicio</h1>
+        <a th:href="@{/agregar}"> Crear candidato <a/>
+        <div th:if="${candidatos != null and !candidatos.empty}">
+            <table border="1">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Tipo</th>
+                    <th>Documento</th>
+                    <th>Fecha de nacimiento</th>
+                </tr>
+                <tr th:each="candidato : ${candidatos}">
+                    <td th:text="${candidato.nombre}">Mostrar Nombre</td>
+                    <td th:text="${candidato.apellido}">Mostrar Apellido</td>
+                    <td th:text="${candidato.tipo}">Mostrar Tipo</td>
+                    <td th:text="${candidato.documento}">Mostrar Documento</td>
+                    <td th:text="${candidato.fechaDeNaciemiento}">Mostrar Fecha de nacimiento</td>
+                </tr>
+            </table>
+        </div>
+            <div th:if="${candidatos == null or candidatos.empty}">
+                La lista de candidatos está vacía
+            </div>
+
+    </body>
+</html>
