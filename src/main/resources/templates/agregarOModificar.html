@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Agragar/Modificar candidato</title>
+    </head>
+    <body>
+        <h1>Datos del Candidato</h1>
+        <a th:href="@{}">Regresar</a>
+        <br/>
+        <form th:action="@{/guardar}" method="post">
+            <imput type="hidden" name="Id del candidato" th:field="*{candidateId}"/>
+            <br/>
+            <label> for="nombre">Nombre:</label>
+            <input type="text" name="nombre" />
+            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error nombre</span>
+            <label> for="apellido">Apellido:</label>
+            <input type="text" name="apellido" th:field="*{apellido}"/>
+            <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">Error apellido</span>
+            <label> for="tipo>Tipo:</label>
+            <input type="text" name="tipo" th:field="*{tipo}"/>
+            <span th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}">Error tipo</span>
+            <br/>
+            <label> for="documento">documento:</label>
+            <input type="text" name="documento" th:field="*{documento}"/>
+            <label> for="fechaNacimiento">Fecha de nacimiento:</label>
+            <input type="text" name="fechaNacimiento" th:field="*{fechaNaciemiento}"/>
+        </form>
+    </body>
+</html>
