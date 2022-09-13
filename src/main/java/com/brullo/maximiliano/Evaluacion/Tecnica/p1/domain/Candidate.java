@@ -18,9 +18,15 @@ public class Candidate implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long candidateId;
+
+    @NotEmpty
     private String nombre;
+    @NotEmpty
     private String apellido;
+    @NotEmpty
     private Character tipo;
+    @NotEmpty
     private Integer documento;
+
     private String fechaNacimiento;
 }
