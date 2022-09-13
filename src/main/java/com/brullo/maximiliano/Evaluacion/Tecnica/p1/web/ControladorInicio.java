@@ -1,5 +1,6 @@
 package com.brullo.maximiliano.Evaluacion.Tecnica.p1.web;
 
+import com.brullo.maximiliano.Evaluacion.Tecnica.p1.domain.Candidate;
 import com.brullo.maximiliano.Evaluacion.Tecnica.p1.service.CandidateService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,4 +23,9 @@ public class ControladorInicio {
         log.info("Controlador MVC...");
         return "index";
     }
+
+    public String agregar(Candidate candidate) {
+        return "modificar";
+    }
+
 }
