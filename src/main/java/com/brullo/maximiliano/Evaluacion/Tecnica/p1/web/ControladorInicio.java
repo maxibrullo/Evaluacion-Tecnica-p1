@@ -5,6 +5,8 @@ import com.brullo.maximiliano.Evaluacion.Tecnica.p1.service.CandidateService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +33,10 @@ public class ControladorInicio {
     }
 
     @PostMapping("/guardar")
-    public String guardar(Candidate candidate){
+    public String guardar(@Validated Candidate candidate, Errors errors){
+        if(errors.hasErrors()){
+            return "agregarOModificar";
+        }
         candidateService.save(candidate);
         return "redirect:/";
     }
