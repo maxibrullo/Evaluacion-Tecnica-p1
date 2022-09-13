@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
     <head>
         <title>Inicio</title>
         <meta charset="UTF-8">
     </head>
     <body>
-        <h1>Inicio</h1>
-        <a th:href="@{/agregar}"> Crear candidato <a/>
+    <h1>Inicio</h1>
+    <a th:href="@{/agregar}"> Crear candidato <a/>
         <div th:if="${candidatos != null and !candidatos.empty}">
             <table border="1">
                 <tr>
@@ -15,19 +15,22 @@
                     <th>Tipo</th>
                     <th>Documento</th>
                     <th>Fecha de nacimiento</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
                 </tr>
-                <tr th:each="candidato : ${candidatos}">
-                    <td th:text="${candidato.nombre}">Mostrar Nombre</td>
-                    <td th:text="${candidato.apellido}">Mostrar Apellido</td>
-                    <td th:text="${candidato.tipo}">Mostrar Tipo</td>
-                    <td th:text="${candidato.documento}">Mostrar Documento</td>
-                    <td th:text="${candidato.fechaDeNaciemiento}">Mostrar Fecha de nacimiento</td>
+                <tr th:each="candidate : ${candidatos}">
+                    <td th:text="${candidate.nombre}">Mostrar Nombre</td>
+                    <td th:text="${candidate.apellido}">Mostrar Apellido</td>
+                    <td th:text="${candidate.tipo}">Mostrar Tipo</td>
+                    <td th:text="${candidate.documento}">Mostrar Documento</td>
+                    <td th:text="${candidate.fechaDeNaciemiento}">Mostrar Fecha de nacimiento</td>
+                    <td> <a th:href="@{/editar/} + ${candidate.candidateId}" th:text="Editar"/>></td>
                 </tr>
             </table>
         </div>
-            <div th:if="${candidatos == null or candidatos.empty}">
-                La lista de candidatos está vacía
-            </div>
-
+        <div th:if="${candidatos == null or candidatos.empty}">
+            </br>
+            La lista de candidatos está vacía
+        </div>
     </body>
 </html>
